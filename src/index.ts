@@ -1,5 +1,18 @@
-import { add } from '@/test/math'
-const  a = 5
-const b = 11
+import express, { response } from "express" ;
+import { createServer } from "http";
 
-console.log ("sum of this two number :",add(a , b))
+const server = express();
+
+const port = process.env.PORT || 8989;
+
+server.listen(port, ()=>{
+    console.log(`the server is running on port http://localhost:${port}`);
+})
+
+server.get( '/',(reqest , response)=>{
+    response.send("<h1>hello this is my first app</h1>");
+})
+
+server.get( '/login',(reqest , response)=>{
+    response.send("<h1>hello this is my login page</h1>");
+})
